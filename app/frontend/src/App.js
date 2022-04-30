@@ -1,9 +1,13 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Forms from './pages/Forms';
 
 function App() {
   return (
-    <div>
-      <h1>Hello, GRX!</h1>
-    </div>
+    <Routes >
+      <Route path="/" element={<Navigate to="/forms" />} />
+      <Route path="/forms" element={<Forms />} />
+    </Routes>
   );
 }
 
