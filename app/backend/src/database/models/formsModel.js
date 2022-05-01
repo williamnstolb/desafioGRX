@@ -16,6 +16,13 @@ const createFormsModel = async (forms) => {
   return formsJson;
 }
 
+const getFormsModel = async () => {
+  const formsFile = await fs.readFile(pathFile, 'utf8');
+  const formsJson = JSON.parse(formsFile);
+  return formsJson;
+}
+
 module.exports = {
   createFormsModel,
+  getFormsModel,
 };
