@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getData } from '../services/requests';
 import ResultSorted from '../components/ResultSorted';
+import '../styles/components/result.css';
 
 export default class Result extends Component {
   constructor() {
@@ -40,17 +41,17 @@ export default class Result extends Component {
     const { QuantidadePositiva, QuantidadeNegativa, QuantidadeNaoAvaliada } = this.state;
     const list = [
       {
-        title: 'Positivas',
+        title: 'Positiva',
         quantity: QuantidadePositiva,
         percentage: this.calcPercentage(QuantidadePositiva),
       },
       {
-        title: 'Negativas',
+        title: 'Negativa',
         quantity: QuantidadeNegativa,
         percentage: this.calcPercentage(QuantidadeNegativa),
       },
       {
-        title: 'Não avaliadas',
+        title: 'Não avaliada',
         quantity: QuantidadeNaoAvaliada,
         percentage: this.calcPercentage(QuantidadeNaoAvaliada),
       },
@@ -58,30 +59,32 @@ export default class Result extends Component {
     return list.sort((a, b) => b.quantity - a.quantity);
   }
 
-
   render() {
     const { Total } = this.state;
     const listSorted = this.createList();
     return (
-      <div>
-        {this.state.loading ? <div>Carregando...</div> :
-        <div>
-            <h1>Resultado</h1>
-          <div>
-            <h2>Total de avaliações</h2>
-            <div>{ Total }</div>
+      <div class="container-sm d-flex justify-content-center">
+        {  this.state.loading ? <div>Carregando...</div> :
+          <div class="card-base d-flex-column align-content-space-around">
+            <div class="card text-white mb-3 bg-primary">
+              <h5 class="card-header">Total</h5>
+              <div class="card-body">
+                <h5 class="card-title">{Total}</h5>
+              </div>
+            </div>
+            <div>
+            { listSorted.map(item => (
+              <div key={item.title}>
+                <ResultSorted 
+                  title={item.title}
+                  quantity={item.quantity}
+                  percentage={item.percentage}
+                />
+              </div>
+            ))}
+            </div>
           </div>
-          { listSorted.map(item => (
-            <div key={item.title}>
-              <ResultSorted 
-                title={item.title}
-                quantity={item.quantity}
-                percentage={item.percentage}
-              />
-            </div>          
-          ))}
-        </div>        
-        }        
+        }
       </div>
     )
   }
