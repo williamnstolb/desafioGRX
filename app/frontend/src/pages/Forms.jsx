@@ -22,10 +22,36 @@ export default class Forms extends Component {
     });
   }
 
+  quantity = async () => {
+    const { Pergunta1, Pergunta2, Pergunta3 } = this.state;
+    let QuantidadePositiva = 0;
+    let QuantidadeNegativa = 0;
+    let QuantidadeNaoAvaliada = 0;
+    const Perguntas = [Pergunta1, Pergunta2, Pergunta3];
+    Perguntas.forEach(pergunta => {
+        QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
+        QuantidadeNegativa += (pergunta === 'Não') ? 1 : 0;
+        QuantidadeNaoAvaliada += (pergunta === 'Não sei') ? 1 : 0;
+        QuantidadePositiva += (pergunta === 'Agora') ? 2 : 0;           
+      this.setState({
+        QuantidadePositiva,
+        QuantidadeNegativa,
+        QuantidadeNaoAvaliada,
+      });
+    });    
+  }
+
+  onSubmit = async (event) => {
+    event.preventDefault();
+    await this.quantity();
+    const forms = this.state;
+    console.log(forms);
+}
+
   render() {
     return (
       <div>
-        <form >
+        <form onSubmit={ this.onSubmit}>
         <label htmlFor='pergunta1'>
            <h3>1) Você se considera bom em lógica?</h3>       
            <Button name="Pergunta1" onChange={ this.onChange }/> 
