@@ -6,7 +6,6 @@ const apiURL = axios.create({
 
 const getData = async (endpoint) => {
   const { data } = await apiURL.get(endpoint);
-  console.log(data);
   return data;
 };
 
