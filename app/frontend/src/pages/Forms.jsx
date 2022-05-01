@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BoxText from '../components/BoxText'
 import Button from '../components/Button'
+import Result from '../components/Result'
 import Select from '../components/Select'
 
 export default class Forms extends Component {
@@ -12,6 +13,10 @@ export default class Forms extends Component {
       Pergunta2: '',
       Pergunta3: '',
       Pergunta4: '',
+      QuantidadePositiva: 0,
+      QuantidadeNegativa: 0,
+      QuantidadeNaoAvaliada: 0,
+      sendForms: false,
     }
   }
 
@@ -27,7 +32,9 @@ export default class Forms extends Component {
     let QuantidadePositiva = 0;
     let QuantidadeNegativa = 0;
     let QuantidadeNaoAvaliada = 0;
+
     const Perguntas = [Pergunta1, Pergunta2, Pergunta3];
+
     Perguntas.forEach(pergunta => {
         QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
         QuantidadeNegativa += (pergunta === 'Não') ? 1 : 0;
@@ -46,9 +53,15 @@ export default class Forms extends Component {
     await this.quantity();
     const forms = this.state;
     console.log(forms);
+    delete forms.sent
+    // await sendForms('/forms', forms);
+    this.setState({
+      sendForms: true,
+    });
 }
 
   render() {
+    const { sendForms } = this.state;
     return (
       <div>
         <form onSubmit={ this.onSubmit}>
@@ -72,6 +85,7 @@ export default class Forms extends Component {
             <input type="submit" />
           </div>
         </form>
+        {sendForms && <Result />}
       </div>
     )
   }
