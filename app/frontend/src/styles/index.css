@@ -1,0 +1,12 @@
+body {
+  background: rgb(15,0,255);
+  background: -moz-linear-gradient(90deg, rgba(15,0,255,1) 5%, rgba(214,0,211,1) 92%);
+  background: -webkit-linear-gradient(90deg, rgba(15,0,255,1) 5%, rgba(214,0,211,1) 92%);
+  background: linear-gradient(90deg, rgba(15,0,255,1) 5%, rgba(214,0,211,1) 92%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f00ff",endColorstr="#d600d3",GradientType=1);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #fff;
+  padding: 10px;
+}

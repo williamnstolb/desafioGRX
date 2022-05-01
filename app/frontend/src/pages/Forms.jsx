@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import BoxText from '../components/BoxText'
-import Button from '../components/Button'
+import SelectOption from '../components/SelectOption'
 import Result from '../components/Result'
 import Select from '../components/Select'
 import { sendForms } from '../services/requests'
+import Button from 'react-bootstrap/esm/Button'
+import '../styles/pages/forms.css'
 
 export default class Forms extends Component {
   constructor() {
@@ -13,10 +15,10 @@ export default class Forms extends Component {
       Pergunta1: '',
       Pergunta2: '',
       Pergunta3: '',
-      Pergunta4: '',
-      QuantidadePositiva: 0,
-      QuantidadeNegativa: 0,
-      QuantidadeNaoAvaliada: 0,
+      // Pergunta4: '',
+      // QuantidadePositiva: 0,
+      // QuantidadeNegativa: 0,
+      // QuantidadeNaoAvaliada: 0,
       sent: false,
     }
   }
@@ -68,31 +70,39 @@ export default class Forms extends Component {
     this.setState({
       sent: true,
     });
-}
+  }
 
   render() {
     const { sent } = this.state;
     return (
-      <div>
+      <div class="container-sm d-flex-column justify-content-center">
         <form onSubmit={ this.onSubmit}>
-        <label htmlFor='pergunta1'>
-           <h3>1) Você se considera bom em lógica?</h3>       
-           <Button name="Pergunta1" onChange={ this.onChange }/> 
-        </label>
-        <label htmlFor='pergunta2'>
-            <h3>2) Gosta de aprender com desafios?</h3>
-            <Button name="Pergunta2" onChange={ this.onChange }/>
-          </label>                    
-          <label htmlFor='pergunta3'>
-            <h3>3) Gostaria de fazer parte da GRX?</h3>
-            <Select name="Pergunta3" onChange={ this.onChange }/>
-          </label>
-          <label htmlFor='pergunta4'>
-            <h3>4) Por favor, justifique a resposta anterior.</h3>
-            <BoxText name="Pergunta4" onChange={ this.onChange }/>
-          </label>
-          <div>
-            <input type="submit" />
+          <div class=".card-body d-flex justify-content-center">
+            <label htmlFor='pergunta1'>
+              <h5 class="card-title">1) Você se considera bom em lógica?</h5>       
+              <SelectOption name="Pergunta1" onChange={ this.onChange }/> 
+            </label>
+          </div>
+          <div class=".card-body d-flex justify-content-center">
+            <label htmlFor='pergunta2'>
+              <h5 class="card-title">2) Gosta de aprender com desafios?</h5>
+              <SelectOption name="Pergunta2" onChange={ this.onChange }/>
+            </label>    
+          </div>
+          <div class=".card-body d-flex justify-content-center">
+            <label htmlFor='pergunta3'>
+              <h5 class="card-title">3) Gostaria de fazer parte da GRX?</h5>
+              <Select name="Pergunta3" onChange={ this.onChange }/>
+            </label>
+          </div>
+          <div class=".card-body d-flex justify-content-center">
+            <label htmlFor='pergunta4'>
+              <h5 class="card-title">4) Por favor, justifique a resposta anterior.</h5>
+              <BoxText name="Pergunta4" onChange={ this.onChange }/>
+            </label>
+          </div>
+          <div class="d-flex justify-content-center" >
+            <Button type="submit" id="btn-submit" class="btn btn-primary ">Enviar</Button>
           </div>
         </form>
         {sent && <Result />}

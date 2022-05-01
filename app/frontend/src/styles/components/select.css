@@ -1,0 +1,14 @@
+#select {
+  background-color: rgba(103, 10, 179, 0.7);
+  width: 30%;
+  height: 35px;
+  text-align: center;
+  border: 1px solid rgb(146, 16, 146, 0.7);
+  border-radius: 15px;
+  font-size: 17px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

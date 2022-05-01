@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../styles/components/select.css';
 
 export default class Select extends Component {
   render() {
     const { name, onChange } = this.props;
     return (
-      <div>
-        <select name={ name } onChange={ onChange } required={ true }>
+      <div class="d-flex justify-content-center">
+        <select id="select" name={ name } onChange={ onChange } required={ true }>
             <option value=""></option>
             <option value="Sim">Sim</option>
             <option value="Não">Não</option>
