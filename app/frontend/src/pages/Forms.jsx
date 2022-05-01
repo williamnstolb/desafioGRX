@@ -3,6 +3,7 @@ import BoxText from '../components/BoxText'
 import Button from '../components/Button'
 import Result from '../components/Result'
 import Select from '../components/Select'
+import { sendForms } from '../services/requests'
 
 export default class Forms extends Component {
   constructor() {
@@ -16,7 +17,7 @@ export default class Forms extends Component {
       QuantidadePositiva: 0,
       QuantidadeNegativa: 0,
       QuantidadeNaoAvaliada: 0,
-      sendForms: false,
+      send: false,
     }
   }
 
@@ -52,16 +53,15 @@ export default class Forms extends Component {
     event.preventDefault();
     await this.quantity();
     const forms = this.state;
-    console.log(forms);
     delete forms.sent
-    // await sendForms('/forms', forms);
+    await sendForms('/forms', forms);
     this.setState({
-      sendForms: true,
+      send: true,
     });
 }
 
   render() {
-    const { sendForms } = this.state;
+    const { send } = this.state;
     return (
       <div>
         <form onSubmit={ this.onSubmit}>
@@ -85,7 +85,7 @@ export default class Forms extends Component {
             <input type="submit" />
           </div>
         </form>
-        {sendForms && <Result />}
+        {send && <Result />}
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { getDatas } from '../services/api';
+import { getData } from '../services/requests';
 
 export default class Result extends Component {
   constructor() {
@@ -14,20 +14,20 @@ export default class Result extends Component {
     }
   }
 
-  // updateState = async () => {
-  //   const { total, positiva, negativa, naoAvaliada } = await getDatas('/forms');
-  //   this.setState({
-  //     Total: total,
-  //     QuantidadePositiva: positiva,
-  //     QuantidadeNegativa: negativa,
-  //     QuantidadeNaoAvaliada: naoAvaliada,
-  //     loading: false,
-  //   });
-  // }
+  updateState = async () => {
+    const { total, positiva, negativa, naoAvaliada } = await getData('/forms');
+    this.setState({
+      Total: total,
+      QuantidadePositiva: positiva,
+      QuantidadeNegativa: negativa,
+      QuantidadeNaoAvaliada: naoAvaliada,
+      loading: false,
+    });
+  }
 
-  // async componentDidMount() {
-  //   await this.updateState();
-  // }
+  async componentDidMount() {
+    await this.updateState();
+  }
 
   calcPercentage = (quantity) => {
     const { Total } = this.state;
