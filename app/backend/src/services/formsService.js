@@ -1,4 +1,4 @@
-const { createFormsModel } = require('../models/formsModel');
+const { createFormsModel } = require('../database/models/formsModel');
 
 const createFormsService = async (forms) => {
   // const quantValidate = calcQuantity(forms);
@@ -9,4 +9,8 @@ const createFormsService = async (forms) => {
 
   const updatedFile = await createFormsModel(forms);  
   return updatedFile;
+};
+
+module.exports = {
+  createFormsService,
 };
