@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { getData } from '../services/requests';
 import ResultSorted from '../components/ResultSorted';
 
@@ -15,7 +15,7 @@ export default class Result extends Component {
     }
   }
 
-  updateState = async () => {
+   updateState = async () => {
     const { total, positiva, negativa, naoAvaliada } = await getData('/forms');
     this.setState({
       Total: total,

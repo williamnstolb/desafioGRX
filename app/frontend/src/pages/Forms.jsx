@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import BoxText from '../components/BoxText'
-import Button from '../components/Button'
+import SelectOption from '../components/SelectOption'
 import Result from '../components/Result'
 import Select from '../components/Select'
 import { sendForms } from '../services/requests'
@@ -77,11 +77,11 @@ export default class Forms extends Component {
         <form onSubmit={ this.onSubmit}>
         <label htmlFor='pergunta1'>
            <h3>1) Você se considera bom em lógica?</h3>       
-           <Button name="Pergunta1" onChange={ this.onChange }/> 
+           <SelectOption name="Pergunta1" onChange={ this.onChange }/> 
         </label>
         <label htmlFor='pergunta2'>
             <h3>2) Gosta de aprender com desafios?</h3>
-            <Button name="Pergunta2" onChange={ this.onChange }/>
+            <SelectOption name="Pergunta2" onChange={ this.onChange }/>
           </label>                    
           <label htmlFor='pergunta3'>
             <h3>3) Gostaria de fazer parte da GRX?</h3>
