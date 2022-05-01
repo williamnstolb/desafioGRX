@@ -30,7 +30,7 @@ export default class Forms extends Component {
         </label>
         <label htmlFor='pergunta2'>
             <h3>2) Gosta de aprender com desafios?</h3>
-            <p >botao</p>
+            <Button name="Pergunta2" onChange={ this.onChange }/>
           </label>                    
           <label htmlFor='pergunta3'>
             <h3>3) Gostaria de fazer parte da GRX?</h3>
