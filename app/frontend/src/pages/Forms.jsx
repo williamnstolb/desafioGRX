@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BoxText from '../components/BoxText'
 import Button from '../components/Button'
 import Select from '../components/Select'
 
@@ -39,7 +40,7 @@ export default class Forms extends Component {
           </label>
           <label htmlFor='pergunta4'>
             <h3>4) Por favor, justifique a resposta anterior.</h3>
-            <p >select</p>
+            <BoxText name="Pergunta4" onChange={ this.onChange }/>
           </label>
           <div>
             <input type="submit" />
