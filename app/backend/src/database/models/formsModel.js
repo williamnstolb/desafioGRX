@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 
-const pathFile = './forms.json';
+const pathFile = './src/database/forms.json';
 
 const createFormsModel = async (forms) => {
   const formsFile = await fs.readFile(pathFile, 'utf8');
