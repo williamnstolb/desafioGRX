@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../styles/components/resultSorted.css'
 
 export default class ResultSorted extends Component {
 

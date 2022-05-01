@@ -5,6 +5,7 @@ import Result from '../components/Result'
 import Select from '../components/Select'
 import { sendForms } from '../services/requests'
 import Button from 'react-bootstrap/esm/Button'
+import '../styles/pages/forms.css'
 
 export default class Forms extends Component {
   constructor() {
@@ -74,7 +75,7 @@ export default class Forms extends Component {
   render() {
     const { sent } = this.state;
     return (
-      <div class="container-sm d-flex justify-content-center ">
+      <div class="container-sm d-flex-column justify-content-center">
         <form onSubmit={ this.onSubmit}>
           <div class=".card-body d-flex justify-content-center">
             <label htmlFor='pergunta1'>
@@ -100,8 +101,8 @@ export default class Forms extends Component {
               <BoxText name="Pergunta4" onChange={ this.onChange }/>
             </label>
           </div>
-          <div class="d-flex justify-content-center">
-            <Button type="submit" class="btn btn-primary ">Enviar</Button>
+          <div class="d-flex justify-content-center" >
+            <Button type="submit" id="btn-submit" class="btn btn-primary ">Enviar</Button>
           </div>
         </form>
         {sent && <Result />}
