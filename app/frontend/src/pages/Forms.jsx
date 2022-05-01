@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from '../components/Button'
+import Select from '../components/Select'
 
 export default class Forms extends Component {
   constructor() {
@@ -34,7 +35,7 @@ export default class Forms extends Component {
           </label>                    
           <label htmlFor='pergunta3'>
             <h3>3) Gostaria de fazer parte da GRX?</h3>
-            <p >select</p>
+            <Select name="Pergunta3" onChange={ this.onChange }/>
           </label>
           <label htmlFor='pergunta4'>
             <h3>4) Por favor, justifique a resposta anterior.</h3>
