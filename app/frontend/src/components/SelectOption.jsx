@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import Button from 'react-bootstrap/Button'
 
 export default class SelectOption extends Component {
   render() {
     const { name, onChange } = this.props;
     return (
-      <div>          
-          <label htmlFor='buttonYes'>
-            <Button required={ true } id='buttonYes' value="Sim" name={ name } onChange={ onChange } selected variant="success">Sim</Button>
-          </label>{ ' ' }
-          <label htmlFor='buttonNo'>
-            <Button required={ true } id='buttonNo'  value="Não" name={ name } onChange={ onChange } >Não</Button>
-          </label>    
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label forHtml="Sim" class="btn btn-success">
+          <input type="radio" name={ name } id="Sim" autocomplete="off" onChange={ onChange } value="Sim"/> Sim
+        </label>
+        <label forHtml="Não" class="btn btn-danger">
+          <input type="radio" name={ name } id="Não" autocomplete="off" onChange={ onChange } value="Não"/> Não
+        </label>
       </div>
     )
   }
