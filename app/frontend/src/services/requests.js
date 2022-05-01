@@ -8,15 +8,16 @@ const getData = async (endpoint) => {
   // const { data } = await apiURL.get(endpoint);
   const dataMock = {
     total: 10,
-    Positivas: 5,
-    Negativas: 3,
-    naoAvaliadas: 2,
+    positiva: 5,
+    negativa: 3,
+    naoAvaliada: 2,
   }
   return dataMock;
 };
 
 const sendForms = async (endpoint, body) => {
-  await apiURL.post(endpoint, body);
+  // await apiURL.post(endpoint, body);
+  console.log(endpoint, body);
 }
 
 export {

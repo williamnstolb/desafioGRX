@@ -3,7 +3,7 @@ import BoxText from '../components/BoxText'
 import Button from '../components/Button'
 import Result from '../components/Result'
 import Select from '../components/Select'
-import { sendForms } from '../services/api'
+import { sendForms } from '../services/requests'
 
 export default class Forms extends Component {
   constructor() {
@@ -53,11 +53,10 @@ export default class Forms extends Component {
     event.preventDefault();
     await this.quantity();
     const forms = this.state;
-    console.log(forms);
     delete forms.sent
     await sendForms('/forms', forms);
     this.setState({
-      sendForms: true,
+      send: true,
     });
 }
 
