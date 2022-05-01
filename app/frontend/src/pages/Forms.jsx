@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '../components/Button'
 
 export default class Forms extends Component {
   constructor() {
@@ -12,13 +13,20 @@ export default class Forms extends Component {
     }
   }
 
+  onChange = async (event) => {
+    const { name, value } = event.target;    
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     return (
       <div>
         <form >
         <label htmlFor='pergunta1'>
            <h3>1) Você se considera bom em lógica?</h3>       
-           <p >botao</p>
+           <Button name="Pergunta1" onChange={ this.onChange }/> 
         </label>
         <label htmlFor='pergunta2'>
             <h3>2) Gosta de aprender com desafios?</h3>
