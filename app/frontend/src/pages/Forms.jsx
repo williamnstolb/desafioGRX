@@ -17,8 +17,14 @@ export default class Forms extends Component {
       QuantidadePositiva: 0,
       QuantidadeNegativa: 0,
       QuantidadeNaoAvaliada: 0,
-      send: false,
+      sent: false,
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      sent: false,
+    })
   }
 
   onChange = async (event) => {
@@ -33,6 +39,10 @@ export default class Forms extends Component {
     let QuantidadePositiva = 0;
     let QuantidadeNegativa = 0;
     let QuantidadeNaoAvaliada = 0;
+
+    this.setState({
+      sent: false,
+    })
 
     const Perguntas = [Pergunta1, Pergunta2, Pergunta3];
 
@@ -56,12 +66,12 @@ export default class Forms extends Component {
     delete forms.sent
     await sendForms('/forms', forms);
     this.setState({
-      send: true,
+      sent: true,
     });
 }
 
   render() {
-    const { send } = this.state;
+    const { sent } = this.state;
     return (
       <div>
         <form onSubmit={ this.onSubmit}>
@@ -85,7 +95,7 @@ export default class Forms extends Component {
             <input type="submit" />
           </div>
         </form>
-        {send && <Result />}
+        {sent && <Result />}
       </div>
     )
   }
