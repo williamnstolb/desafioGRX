@@ -4,7 +4,7 @@ export default class BoxText extends Component {
   render() {
     const { name, onChange } = this.props;
     return (
-      <div>
+      <div class="d-flex justify-content-center">
         <textarea
           name={ name }
           onChange={ onChange }

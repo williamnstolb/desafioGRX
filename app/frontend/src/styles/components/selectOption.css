@@ -1,0 +1,11 @@
+.btn-yes {
+  background: rgb(29,0,176);
+  background: linear-gradient(90deg, rgba(29,0,176,1) 6%, rgba(131,0,214,1) 98%);
+  color: #fff;
+}
+
+.btn-no {
+  background: rgb(131,0,214);
+  background: linear-gradient(90deg, rgba(131,0,214,1) 2%, rgba(230,0,217,1) 75%);
+  color: rgb(255, 255, 255);
+}

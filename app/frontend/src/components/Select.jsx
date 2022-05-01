@@ -4,7 +4,7 @@ export default class Select extends Component {
   render() {
     const { name, onChange } = this.props;
     return (
-      <div>
+      <div class="d-flex justify-content-center">
         <select name={ name } onChange={ onChange } required={ true }>
             <option value=""></option>
             <option value="Sim">Sim</option>
