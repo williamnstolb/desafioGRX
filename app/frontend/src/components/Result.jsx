@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getData } from '../services/requests';
+import ResultSorted from '../components/ResultSorted';
 
 export default class Result extends Component {
   constructor() {
@@ -33,10 +34,34 @@ export default class Result extends Component {
     const { Total } = this.state;
     const result = (Total !== 0) ? (quantity * 100) / Total : 0;
     return result.toFixed(2);
-  }    
+  }
+
+  createList = () => {
+    const { QuantidadePositiva, QuantidadeNegativa, QuantidadeNaoAvaliada } = this.state;
+    const list = [
+      {
+        title: 'Positivas',
+        quantity: QuantidadePositiva,
+        percentage: this.calcPercentage(QuantidadePositiva),
+      },
+      {
+        title: 'Negativas',
+        quantity: QuantidadeNegativa,
+        percentage: this.calcPercentage(QuantidadeNegativa),
+      },
+      {
+        title: 'Não avaliadas',
+        quantity: QuantidadeNaoAvaliada,
+        percentage: this.calcPercentage(QuantidadeNaoAvaliada),
+      },
+    ];
+    return list.sort((a, b) => b.quantity - a.quantity);
+  }
+
 
   render() {
-    const { Total, QuantidadePositiva, QuantidadeNegativa, QuantidadeNaoAvaliada } = this.state;
+    const { Total } = this.state;
+    const listSorted = this.createList();
     return (
       <div>
         {this.state.loading ? <div>Carregando...</div> :
@@ -46,24 +71,15 @@ export default class Result extends Component {
             <h2>Total de avaliações</h2>
             <div>{ Total }</div>
           </div>
-          <div>
-            <h3>Quantidade Positiva </h3>
-            <div>{ QuantidadePositiva }</div>
-            <h3>% Positiva </h3>
-            <div>{ this.calcPercentage(QuantidadePositiva) }%</div>
-          </div>
-          <div>
-            <h3>Quantidade Negativa </h3>
-            <div>{ QuantidadeNegativa }</div>
-            <h3>% Negativa </h3>
-            <div>{ this.calcPercentage(QuantidadeNegativa) }%</div>
-          </div>
-          <div>
-            <h3>Quantidade Não Avaliada </h3>
-            <div>{ QuantidadeNaoAvaliada }</div>
-            <h3>% Não Avaliada </h3>
-            <div>{ this.calcPercentage(QuantidadeNaoAvaliada) }%</div>
-          </div>  
+          { listSorted.map(item => (
+            <div key={item.title}>
+              <ResultSorted 
+                title={item.title}
+                quantity={item.quantity}
+                percentage={item.percentage}
+              />
+            </div>          
+          ))}
         </div>        
         }        
       </div>
