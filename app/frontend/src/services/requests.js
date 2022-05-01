@@ -5,19 +5,12 @@ const apiURL = axios.create({
 });
 
 const getData = async (endpoint) => {
-  // const { data } = await apiURL.get(endpoint);
-  const dataMock = {
-    total: 10,
-    positiva: 5,
-    negativa: 3,
-    naoAvaliada: 2,
-  }
-  return dataMock;
+  const { data } = await apiURL.get(endpoint);
+  return data;
 };
 
 const sendForms = async (endpoint, body) => {
-  // await apiURL.post(endpoint, body);
-  console.log(endpoint, body);
+  await apiURL.post(endpoint, body);
 }
 
 export {
