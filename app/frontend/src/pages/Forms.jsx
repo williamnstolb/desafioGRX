@@ -15,11 +15,12 @@ export default class Forms extends Component {
       Pergunta1: '',
       Pergunta2: '',
       Pergunta3: '',
-      // Pergunta4: '',
+      Pergunta4: '',
       // QuantidadePositiva: 0,
       // QuantidadeNegativa: 0,
       // QuantidadeNaoAvaliada: 0,
       sent: false,
+      count: 0,
     }
   }
 
@@ -29,8 +30,23 @@ export default class Forms extends Component {
     })
   }
 
+  countChar = (text) => {
+    const element = document.getElementById('count-char');
+    if (text.length < 15 || text.length > 200) {
+      element.style.color = 'red';
+    } else {
+      element.style.color = 'white';
+    }
+
+    this.setState({
+      count: text.length,
+    });
+  }
+
+
   onChange = async (event) => {
-    const { name, value } = event.target;    
+    const { name, value } = event.target;
+    if (name === 'Pergunta4') this.countChar(value)
     this.setState({
       [name]: value,
     });
@@ -65,7 +81,8 @@ export default class Forms extends Component {
     event.preventDefault();
     await this.quantity();
     const forms = this.state;
-    delete forms.sent
+    delete forms.sent;
+    delete forms.count;
     await sendForms('/forms', forms);
     this.setState({
       sent: true,
@@ -73,7 +90,7 @@ export default class Forms extends Component {
   }
 
   render() {
-    const { sent } = this.state;
+    const { sent, count } = this.state;
     return (
       <div class="container-sm d-flex-column justify-content-center">
         <form onSubmit={ this.onSubmit}>
@@ -99,6 +116,7 @@ export default class Forms extends Component {
             <label htmlFor='pergunta4'>
               <h5 class="card-title">4) Por favor, justifique a resposta anterior.</h5>
               <BoxText name="Pergunta4" onChange={ this.onChange }/>
+              <p id="count-char">{ count }/200</p>
             </label>
           </div>
           <div class="d-flex justify-content-center" >

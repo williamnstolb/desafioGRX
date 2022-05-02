@@ -13,3 +13,12 @@
   margin-bottom: 10px;
   width: 15%;
 }
+
+#count-char {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 83%;
+  width: 20%;
+  color: rgb(255, 0, 0);
+}

@@ -16,7 +16,7 @@ export default class Result extends Component {
     }
   }
 
-   updateState = async () => {
+  updateState = async () => {
     const { total, positiva, negativa, naoAvaliada } = await getData('/forms');
     this.setState({
       Total: total,
