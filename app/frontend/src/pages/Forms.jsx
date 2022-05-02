@@ -16,9 +16,6 @@ export default class Forms extends Component {
       Pergunta2: '',
       Pergunta3: '',
       Pergunta4: '',
-      // QuantidadePositiva: 0,
-      // QuantidadeNegativa: 0,
-      // QuantidadeNaoAvaliada: 0,
       sent: false,
       count: 0,
     }
@@ -42,7 +39,6 @@ export default class Forms extends Component {
       count: text.length,
     });
   }
-
 
   onChange = async (event) => {
     const { name, value } = event.target;
@@ -78,12 +74,13 @@ export default class Forms extends Component {
   }
 
   onSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault();    
     await this.quantity();
     const forms = this.state;
     delete forms.sent;
     delete forms.count;
     await sendForms('/forms', forms);
+    document.getElementById('textArea').value = '';
     this.setState({
       sent: true,
     });
@@ -116,7 +113,9 @@ export default class Forms extends Component {
             <label htmlFor='pergunta4'>
               <h5 class="card-title">4) Por favor, justifique a resposta anterior.</h5>
               <BoxText name="Pergunta4" onChange={ this.onChange }/>
-              <p id="count-char">{ count }/200</p>
+              <span>
+                <p id="count-char">{ count || 0 }/200</p>
+              </span>            
             </label>
           </div>
           <div class="d-flex justify-content-center" >
