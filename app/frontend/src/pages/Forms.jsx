@@ -53,18 +53,16 @@ export default class Forms extends Component {
     let QuantidadePositiva = 0;
     let QuantidadeNegativa = 0;
     let QuantidadeNaoAvaliada = 0;
-
     this.setState({
       sent: false,
     })
 
     const Perguntas = [Pergunta1, Pergunta2, Pergunta3];
-
     Perguntas.forEach(pergunta => {
-        QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
-        QuantidadeNegativa += (pergunta === 'Não') ? 1 : 0;
-        QuantidadeNaoAvaliada += (pergunta === 'Não sei') ? 1 : 0;
-        QuantidadePositiva += (pergunta === 'Agora') ? 2 : 0;           
+      QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
+      QuantidadeNegativa += (pergunta === 'Não') ? 1 : 0;
+      QuantidadeNaoAvaliada += (pergunta === 'Não sei') ? 1 : 0;
+      QuantidadePositiva += (pergunta === 'Agora') ? 2 : 0;           
       this.setState({
         QuantidadePositiva,
         QuantidadeNegativa,
