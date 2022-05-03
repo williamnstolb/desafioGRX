@@ -42,6 +42,7 @@ export default class Forms extends Component {
 
   onChange = async (event) => {
     const { name, value } = event.target;
+    console.log(name, value);
     if (name === 'Pergunta4') this.countChar(value)
     this.setState({
       [name]: value,
@@ -56,7 +57,6 @@ export default class Forms extends Component {
     this.setState({
       sent: false,
     })
-
     const Perguntas = [Pergunta1, Pergunta2, Pergunta3];
     Perguntas.forEach(pergunta => {
       QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
@@ -89,25 +89,25 @@ export default class Forms extends Component {
     return (
       <div class="container-sm d-flex-column justify-content-center">
         <form onSubmit={ this.onSubmit}>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta1'>
               <h5 class="card-title">1) Você se considera bom em lógica?</h5>       
               <SelectOption name="Pergunta1" onChange={ this.onChange }/> 
             </label>
           </div>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta2'>
               <h5 class="card-title">2) Gosta de aprender com desafios?</h5>
               <SelectOption name="Pergunta2" onChange={ this.onChange }/>
             </label>    
           </div>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta3'>
               <h5 class="card-title">3) Gostaria de fazer parte da GRX?</h5>
               <Select name="Pergunta3" onChange={ this.onChange }/>
             </label>
           </div>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta4'>
               <h5 class="card-title">4) Por favor, justifique a resposta anterior.</h5>
               <BoxText name="Pergunta4" onChange={ this.onChange }/>

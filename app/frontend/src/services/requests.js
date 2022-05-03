@@ -1,7 +1,8 @@
 import axios from 'axios';
+import env from 'react-dotenv'
 
 const apiURL = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: env.REACT_APP_API_URL,
 });
 
 const getData = async (endpoint) => {

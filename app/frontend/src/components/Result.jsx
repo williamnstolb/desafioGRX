@@ -73,15 +73,15 @@ export default class Result extends Component {
               </div>
             </div>
             <div>
-            { listSorted.map(item => (
-              <div key={item.title}>
-                <ResultSorted 
-                  title={item.title}
-                  quantity={item.quantity}
-                  percentage={item.percentage}
-                />
-              </div>
-            ))}
+              { listSorted.map(item => (
+                <div key={item.title}>
+                  <ResultSorted 
+                    title={item.title}
+                    quantity={item.quantity}
+                    percentage={item.percentage}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         }
