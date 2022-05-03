@@ -42,7 +42,6 @@ export default class Forms extends Component {
 
   onChange = async (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     if (name === 'Pergunta4') this.countChar(value)
     this.setState({
       [name]: value,
