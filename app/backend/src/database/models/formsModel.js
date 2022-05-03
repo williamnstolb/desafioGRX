@@ -1,6 +1,7 @@
 const fs = require('fs').promises;
+require('dotenv').config();
 
-const pathFile = './src/database/forms.json';
+const pathFile = process.env.PATHNAME;
 
 const getFormsModel = async () => {
   const formsFile = await fs.readFile(pathFile, 'utf8');
