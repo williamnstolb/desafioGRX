@@ -19,3 +19,30 @@
     QuantidadeNaoAvaliada: 1,
   },
 ];
+
+const bodyCorrectToCreate = {
+  Pergunta1: "Sim",
+  Pergunta2: "Sim",
+  Pergunta3: "Agora",
+  Pergunta4: "Texto com pelo menos 15 caracteres.",
+  QuantidadePositiva: 4,
+  QuantidadeNegativa: 0,
+  QuantidadeNaoAvaliada: 0,
+};
+
+const bodyIncorrectToCreate = {
+  Pergunta1: "Não",
+  Pergunta2: "Sim",
+  Pergunta3: "Agora",
+  Pergunta4: "Texto com pelo menos 15 caracteres.",
+  QuantidadePositiva: 4,
+  QuantidadeNegativa: 0,
+  QuantidadeNaoAvaliada: 0,
+  QuantidadePositiva: 4,
+};
+
+module.exports = {
+  databaseMocked,
+  bodyCorrectToCreate,
+  bodyIncorrectToCreate,
+};
