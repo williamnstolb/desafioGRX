@@ -6,19 +6,19 @@
 
 ### Tópicos
 
-- [Imagens do projeto](#imagens-do-projeto)
+- [Imagens do projeto](#:camera:-imagens-do-projeto)
 
-- [Descrição do projeto](#descrição-do-projeto)
+- [Descrição do projeto](#:man_dancing:-descrição-do-projeto)
 
-- [Melhorias possíveis](#melhorias-possíveis)
+- [Melhorias possíveis](#:construction:-melhorias-possíveis)
 
-- [Stacks utilizadas](#stacks-utilizadas)
+- [Stacks utilizadas](#:books:-stacks-utilizadas)
 
-- [Etapa mais desafiadora](#etapa-mais-desafiadora)
+- [Etapa mais desafiadora](#:goberserk:-etapa-mais-desafiadora)
 
-- [Abrir e rodar o projeto](#abrir-e-rodar-o-projeto)
+- [Abrir e rodar o projeto](#%EF%B8%8F-abrir-e-rodar-o-projeto)
 
-- [Feedback sobre o desafio](#feedback-sobre-o-desafio)
+- [Feedback sobre o desafio](#:recycle:-feedback-sobre-o-desafio)
 
 
 # :camera: Imagens do projeto
