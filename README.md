@@ -1,11 +1,12 @@
-# Desafio Coleta GRX 
+# :package: Desafio Coleta GRX
 
-![]()
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
 </p>
 
-### Tópicos 
+### Tópicos
+
+- [Imagens do projeto](#imagens-do-projeto)
 
 - [Descrição do projeto](#descrição-do-projeto)
 
@@ -19,7 +20,15 @@
 
 - [Feedback sobre o desafio](#feedback-sobre-o-desafio)
 
-# Descrição do Projeto
+
+# :camera: Imagens do projeto
+
+<spam>
+  <img src="https://github.com/williamnstolb/desafioGRX/blob/master/app/Images/TelaPrincipal.png" alt="Tela primária" width="400"/>
+  <img src="https://github.com/williamnstolb/desafioGRX/blob/master/app/Images/TelaResultados.png" alt="Tela resultado" width="400"/>
+</spam>
+
+# :man_dancing: Descrição do Projeto
 
 Desafio proposto pela GRX, onde:
 
@@ -52,7 +61,7 @@ Desafio proposto pela GRX, onde:
 - [Express](https://expressjs.com/pt-br/) 
 - [Mocha](https://mochajs.org/)
 
-# Etapa mais desafiadora
+# :goberserk: Etapa mais desafiadora
 
 - Relembrar o React foi bem desafiador, porém, acredito que mais desafiador ainda foi conectar o front com o back. Ainda não tinha feito algo do tipo e vários problemas surgiram, um deles foi a falta do CORS no backend, mesmo depois de configurar o AXIOS no front, ficava retornando erro e demorou um tempo para perceber o motivo.
 - Pontuando um outro desafio foi começar um projeto full stack do zero, mas foi incrível perceber que as lembranças fluíam de forma natural no desenrolar do desafio.
@@ -75,7 +84,7 @@ Desafio proposto pela GRX, onde:
     * Na pasta do front-end `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
     * Na pasta do back-end `npm run dev` (o back-end começará a rodar na porta 3000)
 
-# Feedback sobre o desafio
+# :recycle: Feedback sobre o desafio
 
 - Uma das regras pede para dispor um contador que fica vermelho caso seja extrapolada uma das duas regras da caixa de texto
 (mínimo de 15 e máximo de 200 caracteres), sendo que uma opção do HTML é justamente criar o limite máximo, não deixando ultrapassar. Uma forma que vejo
