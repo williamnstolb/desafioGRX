@@ -15,11 +15,9 @@ export default class Forms extends Component {
       Pergunta1: '',
       Pergunta2: '',
       Pergunta3: '',
-      // Pergunta4: '',
-      // QuantidadePositiva: 0,
-      // QuantidadeNegativa: 0,
-      // QuantidadeNaoAvaliada: 0,
+      Pergunta4: '',
       sent: false,
+      count: 0,
     }
   }
 
@@ -29,8 +27,22 @@ export default class Forms extends Component {
     })
   }
 
+  countChar = (text) => {
+    const element = document.getElementById('count-char');
+    if (text.length < 15 || text.length > 200) {
+      element.style.color = 'red';
+    } else {
+      element.style.color = 'white';
+    }
+
+    this.setState({
+      count: text.length,
+    });
+  }
+
   onChange = async (event) => {
-    const { name, value } = event.target;    
+    const { name, value } = event.target;
+    if (name === 'Pergunta4') this.countChar(value)
     this.setState({
       [name]: value,
     });
@@ -41,18 +53,15 @@ export default class Forms extends Component {
     let QuantidadePositiva = 0;
     let QuantidadeNegativa = 0;
     let QuantidadeNaoAvaliada = 0;
-
     this.setState({
       sent: false,
     })
-
     const Perguntas = [Pergunta1, Pergunta2, Pergunta3];
-
     Perguntas.forEach(pergunta => {
-        QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
-        QuantidadeNegativa += (pergunta === 'Não') ? 1 : 0;
-        QuantidadeNaoAvaliada += (pergunta === 'Não sei') ? 1 : 0;
-        QuantidadePositiva += (pergunta === 'Agora') ? 2 : 0;           
+      QuantidadePositiva += (pergunta === 'Sim') ? 1 : 0;
+      QuantidadeNegativa += (pergunta === 'Não') ? 1 : 0;
+      QuantidadeNaoAvaliada += (pergunta === 'Não sei') ? 1 : 0;
+      QuantidadePositiva += (pergunta === 'Agora') ? 2 : 0;           
       this.setState({
         QuantidadePositiva,
         QuantidadeNegativa,
@@ -62,43 +71,48 @@ export default class Forms extends Component {
   }
 
   onSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault();    
     await this.quantity();
     const forms = this.state;
-    delete forms.sent
+    delete forms.sent;
+    delete forms.count;
     await sendForms('/forms', forms);
+    document.getElementById('textArea').value = '';
     this.setState({
       sent: true,
     });
   }
 
   render() {
-    const { sent } = this.state;
+    const { sent, count } = this.state;
     return (
       <div class="container-sm d-flex-column justify-content-center">
         <form onSubmit={ this.onSubmit}>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta1'>
               <h5 class="card-title">1) Você se considera bom em lógica?</h5>       
               <SelectOption name="Pergunta1" onChange={ this.onChange }/> 
             </label>
           </div>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta2'>
               <h5 class="card-title">2) Gosta de aprender com desafios?</h5>
               <SelectOption name="Pergunta2" onChange={ this.onChange }/>
             </label>    
           </div>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta3'>
               <h5 class="card-title">3) Gostaria de fazer parte da GRX?</h5>
               <Select name="Pergunta3" onChange={ this.onChange }/>
             </label>
           </div>
-          <div class=".card-body d-flex justify-content-center">
+          <div class="card-body d-flex justify-content-center">
             <label htmlFor='pergunta4'>
               <h5 class="card-title">4) Por favor, justifique a resposta anterior.</h5>
               <BoxText name="Pergunta4" onChange={ this.onChange }/>
+              <span>
+                <p id="count-char">{ count || 0 }/200</p>
+              </span>            
             </label>
           </div>
           <div class="d-flex justify-content-center" >

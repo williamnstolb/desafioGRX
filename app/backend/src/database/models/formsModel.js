@@ -1,10 +1,16 @@
 const fs = require('fs').promises;
+require('dotenv').config();
 
-const pathFile = './src/database/forms.json';
+const pathFile = process.env.PATHNAME;
 
-const createFormsModel = async (forms) => {
+const getFormsModel = async () => {
   const formsFile = await fs.readFile(pathFile, 'utf8');
   const formsJson = JSON.parse(formsFile);
+  return formsJson;
+}
+
+const createFormsModel = async (forms) => {
+  const formsJson = await getFormsModel();
 
   const idFree = formsJson.length + 1;
   const newForms = {
@@ -13,12 +19,6 @@ const createFormsModel = async (forms) => {
   };
   formsJson.push(newForms);
   await fs.writeFile(pathFile, JSON.stringify(formsJson));
-  return formsJson;
-}
-
-const getFormsModel = async () => {
-  const formsFile = await fs.readFile(pathFile, 'utf8');
-  const formsJson = JSON.parse(formsFile);
   return formsJson;
 }
 

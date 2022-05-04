@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class BoxText extends Component {
   render() {
@@ -6,6 +6,7 @@ export default class BoxText extends Component {
     return (
       <div class="d-flex justify-content-center">
         <textarea
+          id="textArea"
           name={ name }
           onChange={ onChange }
           required={ true }

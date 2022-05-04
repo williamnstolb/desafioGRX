@@ -16,7 +16,7 @@ export default class Result extends Component {
     }
   }
 
-   updateState = async () => {
+  updateState = async () => {
     const { total, positiva, negativa, naoAvaliada } = await getData('/forms');
     this.setState({
       Total: total,
@@ -73,15 +73,15 @@ export default class Result extends Component {
               </div>
             </div>
             <div>
-            { listSorted.map(item => (
-              <div key={item.title}>
-                <ResultSorted 
-                  title={item.title}
-                  quantity={item.quantity}
-                  percentage={item.percentage}
-                />
-              </div>
-            ))}
+              { listSorted.map(item => (
+                <div key={item.title}>
+                  <ResultSorted 
+                    title={item.title}
+                    quantity={item.quantity}
+                    percentage={item.percentage}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         }

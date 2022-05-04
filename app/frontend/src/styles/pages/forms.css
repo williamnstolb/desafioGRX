@@ -9,7 +9,16 @@
   border-radius: 50%;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   width: 15%;
+}
+
+#count-char {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+  margin-left: 77%;
+  width: 20%;
+  color: rgb(255, 0, 0);
 }
