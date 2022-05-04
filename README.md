@@ -81,7 +81,7 @@ Desafio proposto pela GRX, onde:
     * `cd backend`
     * `npm install`
   * Inicialize o projeto:
-    * Na pasta do front-end `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
+    * Na pasta do front-end `npm start` (uma nova página deve abrir no seu navegador com as perguntas do formulário)
     * Na pasta do back-end `npm run dev` (o back-end começará a rodar na porta 3001)
 
 # :recycle: Feedback sobre o desafio
